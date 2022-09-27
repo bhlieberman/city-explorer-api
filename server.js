@@ -32,8 +32,11 @@ app.get('/', (req, res) => {
 app.get('/weather', (req, res) => {
     let { lat, lon, searchQuery } = req.query;
     let response = reduce(data, (acc, city) => {
-        if (city.city_name === searchQuery && city.lat === lat && city.lon === lon) {
-            let data = city.data.map(data => new Forecast(data.datetime, data.weather.description));
+        if (city.city_name === searchQuery) {
+            let data = city.data.map(data => {
+                let desc = `Low of ${data.low_temp}, high of ${data.max_temp} with ${data.weather.description}`;
+                return new Forecast(data.datetime, desc);
+            });
             acc = acc.concat(data);
         }
         return acc;
