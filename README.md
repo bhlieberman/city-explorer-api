@@ -1,7 +1,7 @@
 ## Project Name
 
-**Author**: Your Name Goes Here
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Author**: Ben Lieberman
+**Version**: 1.0.0 
 
 ## Overview
 This is a web API using Express.js. It runs a server with two endpoints: a home for testing, and a `/weather` endpoint that sends data from a JSON file to the user based on input to a form
@@ -18,7 +18,10 @@ Please see diagram below for a visual explanation of this system's architecture
 ## Change Log
 1. Backend start ~13:45 9/27
 2. Backend complete ~14:30 9/27
+3. Lab 08 start 15:51 9/28
 
 ## Credit and Collaborations
 Partner for diagramming: Mathieu Roberts
 WRRC Diagram Lab 07: [WRRC Diagram](http://github.com/bhlieberman/city-explorer/city-explorer-wrrc-diagram.png)
+
+WRRC Diagram Lab 08: [WRRC Diagram](./lab-08-wrrc-diagram.png)
