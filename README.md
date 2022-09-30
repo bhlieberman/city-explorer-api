@@ -19,9 +19,12 @@ Please see diagram below for a visual explanation of this system's architecture
 1. Backend start ~13:45 9/27
 2. Backend complete ~14:30 9/27
 3. Lab 08 start 15:51 9/28
+4. Lab 10 start 14:46 9/30
 
 ## Credit and Collaborations
 Partner for diagramming: Mathieu Roberts
 WRRC Diagram Lab 07: [WRRC Diagram](http://github.com/bhlieberman/city-explorer/city-explorer-wrrc-diagram.png)
 
 WRRC Diagram Lab 08: [WRRC Diagram](./lab-08-wrrc-diagram.png)
+
+WRRC Diagram Lab 10: [WRRC Diagram](./lab_10_wrrc.png)

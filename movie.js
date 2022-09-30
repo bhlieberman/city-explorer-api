@@ -1,17 +1,34 @@
 const reduce = require('lodash.reduce');
 const axios = require('axios');
+const cache = require('./cache');
+const res = require('express/lib/response');
 
 const movieEndpoint = async (req, res) => {
     const { MOVIE_API_KEY, MOVIE_URL } = process.env;
     const { searchQuery } = req.query;
+    let key = 'movie-' + searchQuery;
     let url = `${MOVIE_URL}?query=${searchQuery}&api_key=${MOVIE_API_KEY}`;
     try {
+        let resp = await getMovies(key, url);
+        res.send(resp);
+    } catch (error) {
+        errorHandler(res, error);
+    }
+}
+
+async function getMovies(key, url) {
+    if (cache[key] && (Date.now() - cache[key].timestamp < 50000)) {
+        console.log('Cache hit');
+        let resp = cache[key].data;
+        return resp;
+    } else {
+        console.log('Cache miss');
+        cache[key] = {};
+        cache[key].timestamp = Date.now();
         let { data: { results } } = await axios.get(url);
-        let resp = reduce(results, (acc, movie) => {
-            console.log(movie)
-            let { title, overview, popularity,
-                vote_average, vote_count,
-                poster_path, release_date } = movie;
+        let resp = reduce(results, (acc, { title, overview, popularity,
+            vote_average, vote_count,
+            poster_path, release_date }) => {
             acc.push(new Movie(
                 overview,
                 popularity,
@@ -23,9 +40,8 @@ const movieEndpoint = async (req, res) => {
             ));
             return acc;
         }, []);
-        res.send(resp);
-    } catch (error) {
-        errorHandler(res, error);
+        cache[key].data = resp;
+        return resp;
     }
 }
 
