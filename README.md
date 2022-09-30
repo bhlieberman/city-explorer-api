@@ -20,6 +20,7 @@ Please see diagram below for a visual explanation of this system's architecture
 2. Backend complete ~14:30 9/27
 3. Lab 08 start 15:51 9/28
 4. Lab 10 start 14:46 9/30
+5. Lab 10 backend complete 15:10 9/30
 
 ## Credit and Collaborations
 Partner for diagramming: Mathieu Roberts
